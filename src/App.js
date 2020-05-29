@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import axios from 'axios'
+import Form from './components/Form'
 import './App.css';
+import Dashboard from './components/Dashboard';
+import Product from './components/Product'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          jason towner
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      inventory: []
+    }
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.addInventory = this.addInventory.bind(this)
+  }
+
+  componentDidMount(){
+    axios.get('/api/inventory')
+    .then(res => {
+      this.setState({
+        inventory: res.data, 
+      })
+    })
+    .catch(err => window.alert('Sh*t Happens', err))
+  }
+
+    addInventory(name, img_url, price){
+    const body = {name, img_url, price}
+    axios.post(`/api/inventory`, body)
+    .then(res => {
+      this.setState({
+        inventory:res.data
+      })
+      
+    })
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <Dashboard product={this.state.inventory}/>
+        <Form addInventory={this.addInventory}/>
+        <Product/>
+      </div>
+    );
+  }
 }
+
 
 export default App;
