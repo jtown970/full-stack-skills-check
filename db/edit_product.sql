@@ -1,3 +1,3 @@
 update products
-set name = $1
-where product_id = $2
+set name = $2, img_url = $3, price = $4
+where product_id = $1
