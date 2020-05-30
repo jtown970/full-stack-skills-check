@@ -31,7 +31,10 @@
 }
 
 .item {
+  width: 30vw;
+  height: 15vh;
   background-color: red;
+  margin: 5%;
 }
 
 

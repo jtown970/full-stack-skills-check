@@ -13,7 +13,8 @@ export default class Form extends Component {
     
   }
 
-
+  componentDidMount(){
+  }
 
   toggleAdd(){
     this.setState({
@@ -28,6 +29,8 @@ export default class Form extends Component {
       this.setState({
         inventory:res.data
       })
+    this.props.getAllProducts();
+
     })
   }
 
