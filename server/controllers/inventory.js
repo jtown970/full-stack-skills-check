@@ -1,12 +1,12 @@
 
 module.exports = {
+
   getInventory: (req, res) => {
-    const db = req.app.get('db')
+    const db = req.app.get('db');
 
     db.all_products()
-    .then(products => res.status(200).send(products))
+    .then(e => res.status(200).send(e))
     .catch(err => res.status(500).send(err))
-    
   },
   
   addInventory: (req, res) => {

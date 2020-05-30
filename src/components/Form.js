@@ -28,6 +28,7 @@ export default class Form extends Component {
         inventory:res.data
       })
     })
+    
   }
 
   handleName(e){
@@ -55,7 +56,7 @@ export default class Form extends Component {
 
   render() {
     return (
-      <div>
+      <div className="form">
         {!this.state.isAdding ? (
           <button onClick={() => this.toggleAdd()}>Add Product</button>
         ) : (
