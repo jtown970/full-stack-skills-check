@@ -10,6 +10,7 @@ export default class Form extends Component {
       imgUrl: '',
       price: 0
     }
+    
   }
 
 
@@ -28,7 +29,6 @@ export default class Form extends Component {
         inventory:res.data
       })
     })
-    
   }
 
   handleName(e){

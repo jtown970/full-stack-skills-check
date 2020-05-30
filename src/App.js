@@ -16,6 +16,7 @@ class App extends Component {
 
   componentDidMount(){
     this.getAllProducts();
+    
   }
 
   getAllProducts(){
@@ -27,8 +28,6 @@ class App extends Component {
     })
     .catch(err => window.alert('Sh*t Happens', err))
   }
-
-
 
   render(){
     return (
