@@ -4,6 +4,7 @@ import Form from './components/Form'
 import './App.css';
 import Dashboard from './components/Dashboard';
 import Product from './components/Product'
+import Header from './components/Header';
 
 class App extends Component {
   constructor(){
@@ -32,9 +33,12 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Dashboard product={this.state.inventory}/>
-        <Form getAllProducts={this.getAllProducts}/>
-        {/* <Product/> */}
+        <Header/>
+        <div className="body">
+          <Dashboard product={this.state.inventory}/>
+          <Form getAllProducts={this.getAllProducts}/>
+          {/* <Product/> */}
+        </div>
       </div>
     );
   }
