@@ -20,6 +20,16 @@ export default class Form extends Component {
     })
   }
 
+  addInventory(name, img_url, price){
+    const body = {name, img_url, price}
+    axios.post(`/api/inventory`, body)
+    .then(res => {
+      this.setState({
+        inventory:res.data
+      })
+    })
+  }
+
   handleName(e){
     this.setState({
       name: e.target.value
@@ -39,7 +49,7 @@ export default class Form extends Component {
   }
 
   handleSaveAdd(){ // note add destuc
-    this.props.addInventory( this.state.name, this.state.imgUrl, this.state.price)
+    this.addInventory( this.state.name, this.state.imgUrl, this.state.price)
     this.toggleAdd()
   }
 

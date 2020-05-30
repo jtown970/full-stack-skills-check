@@ -11,11 +11,14 @@ class App extends Component {
     this.state = {
       inventory: []
     }
-    this.componentDidMount = this.componentDidMount.bind(this)
-    this.addInventory = this.addInventory.bind(this)
+    this.getAllProducts = this.getAllProducts.bind(this)
   }
 
   componentDidMount(){
+    this.getAllProducts();
+  }
+
+  getAllProducts(){
     axios.get('/api/inventory')
     .then(res => {
       this.setState({
@@ -25,22 +28,13 @@ class App extends Component {
     .catch(err => window.alert('Sh*t Happens', err))
   }
 
-    addInventory(name, img_url, price){
-    const body = {name, img_url, price}
-    axios.post(`/api/inventory`, body)
-    .then(res => {
-      this.setState({
-        inventory:res.data
-      })
-      
-    })
-  }
+
 
   render(){
     return (
       <div className="App">
         <Dashboard product={this.state.inventory}/>
-        <Form addInventory={this.addInventory}/>
+        <Form getAllProducts={this.getAllProducts}/>
         <Product/>
       </div>
     );

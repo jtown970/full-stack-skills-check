@@ -3,11 +3,12 @@ module.exports = {
   getInventory: (req, res) => {
     const db = req.app.get('db')
 
-    db.all_inventory()
+    db.all_products()
     .then(products => res.status(200).send(products))
     .catch(err => res.status(500).send(err))
     
   },
+  
   addInventory: (req, res) => {
     const {name, img_url, price} = req.body
     const db = req.app.get('db');
