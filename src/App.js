@@ -3,7 +3,7 @@ import axios from 'axios'
 import Form from './components/Form'
 import './App.css';
 import Dashboard from './components/Dashboard';
-import Product from './components/Product'
+// import Product from './components/Product'
 import Header from './components/Header';
 
 class App extends Component {
@@ -30,12 +30,21 @@ class App extends Component {
     .catch(err => window.alert('Sh*t Happens', err))
   }
 
+  //   deleteProduct(id){
+  //   axios.delete(`/api/inventory/${id}`).then((res) => {
+  //    this.setState({
+  //      inventory: res.data
+  //    })
+  //     // this.props.getAllProducts();
+  //   })
+  // }
+
   render(){
     return (
       <div className="App">
         <Header/>
         <div className="body">
-          <Dashboard product={this.state.inventory}/>
+          <Dashboard  product={this.state.inventory} getAllProducts={this.getAllProducts}/>
           <Form getAllProducts={this.getAllProducts}/>
           {/* <Product/> */}
         </div>

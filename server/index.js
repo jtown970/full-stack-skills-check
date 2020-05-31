@@ -19,6 +19,6 @@ massive({
 app.get(`/api/inventory`, ctrl.getInventory)
 app.post(`/api/inventory`, ctrl.addInventory)
 app.put(`/api/inventory/:id`, ctrl.editInventory)
-app.delete(`/api/inventory/id`, ctrl.deleteInventory)
+app.delete(`/api/inventory/:id`, ctrl.deleteInventory)
 
 app.listen(SERVER_PORT, ()=> console.log(`server is running on port ${SERVER_PORT}`))

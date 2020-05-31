@@ -13,8 +13,7 @@ export default class Form extends Component {
     
   }
 
-  componentDidMount(){
-  }
+
 
   toggleAdd(){
     this.setState({
