@@ -15,11 +15,11 @@ export default class Form extends Component {
 
 
 
-  toggleAdd(){
-    this.setState({
-      isAdding: !this.state.isAdding
-    })
-  }
+  // toggleAdd(){
+  //   this.setState({
+  //     isAdding: !this.state.isAdding
+  //   })
+  // }
 
   addInventory(name, img_url, price){
     const body = {name, img_url, price}
@@ -59,9 +59,9 @@ export default class Form extends Component {
   render() {
     return (
       <div className="form">
-        {!this.state.isAdding ? (
+        {/* {!this.state.isAdding ? (
           <button onClick={() => this.toggleAdd()}>Add Product</button>
-        ) : (
+        ) : ( */}
           <div>
             <p>Product Name:</p>
             <input placeholder="Product Name" onChange={(e) => this.handleName(e)} />
@@ -73,7 +73,7 @@ export default class Form extends Component {
             <button onClick={() => this.handleSaveAdd()} >Add</button>
             <button onClick={() => this.toggleAdd() } >Cancel</button>
           </div>
-        )}
+        {/* )} */}
       </div>
     )
   }

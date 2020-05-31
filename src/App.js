@@ -10,9 +10,11 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      inventory: []
+      inventory: [],
+      isEditing: false
     }
     this.getAllProducts = this.getAllProducts.bind(this)
+    this.toggleEditing = this.toggleEditing.bind(this)
   }
 
   componentDidMount(){
@@ -30,14 +32,11 @@ class App extends Component {
     .catch(err => window.alert('Sh*t Happens', err))
   }
 
-  //   deleteProduct(id){
-  //   axios.delete(`/api/inventory/${id}`).then((res) => {
-  //    this.setState({
-  //      inventory: res.data
-  //    })
-  //     // this.props.getAllProducts();
-  //   })
-  // }
+  toggleEditing(){
+    this.setState({
+      isEditing: !this.state.isEditing
+    })
+  }
 
   render(){
     return (
@@ -45,7 +44,7 @@ class App extends Component {
         <Header/>
         <div className="body">
           <Dashboard  product={this.state.inventory} getAllProducts={this.getAllProducts}/>
-          <Form getAllProducts={this.getAllProducts}/>
+          <Form getAllProducts={this.getAllProducts}  isEditing={this.isEditing}/>
           {/* <Product/> */}
         </div>
       </div>
