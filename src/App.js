@@ -11,10 +11,12 @@ class App extends Component {
     super()
     this.state = {
       inventory: [],
-      isEditing: false
+      selected: {}
+      
     }
     this.getAllProducts = this.getAllProducts.bind(this)
-    this.toggleEditing = this.toggleEditing.bind(this)
+    this.editSelect = this.editSelect.bind(this)
+    
   }
 
   componentDidMount(){
@@ -32,9 +34,9 @@ class App extends Component {
     .catch(err => window.alert('Sh*t Happens', err))
   }
 
-  toggleEditing(){
+  editSelect(product) {
     this.setState({
-      isEditing: !this.state.isEditing
+      selected: product
     })
   }
 
@@ -43,8 +45,8 @@ class App extends Component {
       <div className="App">
         <Header/>
         <div className="body">
-          <Dashboard  product={this.state.inventory} getAllProducts={this.getAllProducts}/>
-          <Form getAllProducts={this.getAllProducts}  isEditing={this.isEditing}/>
+          <Dashboard select={this.editSelect} product={this.state.inventory} getAllProducts={this.getAllProducts}/>
+          <Form getAllProducts={this.getAllProducts}  select={this.editSelect} current={this.state.selected}/>
           {/* <Product/> */}
         </div>
       </div>

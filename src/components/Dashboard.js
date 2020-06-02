@@ -7,9 +7,6 @@ import Product from './Product'
 export default class Dashboard extends Component {
   constructor(props){
     super(props)
-    this.state = {
-      isEditing: false
-    }
     this.deleteProduct = this.deleteProduct.bind(this)
   }
 
@@ -20,16 +17,10 @@ deleteProduct(id){
     this.props.getAllProducts();
   })
 }
-
-toggleEdit(){
-  this.setState({
-    isEditing: !this.isEditing
-  })
-}
   
   render() {
     const productMap = this.props.product.map((product, i) => (
-      <Product key={i} name={product.name} url={product.img_url} price={product.price}  id={product.product_id} delete={this.deleteProduct} />
+      <Product key={i} name={product.name} url={product.img_url} price={product.price}  id={product.product_id} delete={this.deleteProduct} select={this.props.select} />
     ))
     return (
       <div>
