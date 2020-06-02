@@ -17,9 +17,6 @@ export default class Dashboard extends Component {
 deleteProduct(id){
   axios.delete(`/api/inventory/${id}`)
   .then(() => {
-    // this.setState({
-    //   inventory:res.data
-    // })
     this.props.getAllProducts();
   })
 }

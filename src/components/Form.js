@@ -6,6 +6,7 @@ export default class Form extends Component {
     super()
     this.state = {
       isAdding: false,
+      // resetForm: '',
       name: '',
       imgUrl: '',
       price: 0
@@ -15,11 +16,12 @@ export default class Form extends Component {
 
 
 
-  // toggleAdd(){
-  //   this.setState({
-  //     isAdding: !this.state.isAdding
-  //   })
-  // }
+  toggleAdd(){
+    this.setState({
+      isAdding: !this.state.isAdding,
+      // resetForm: this.state.resetForm.reset()
+    })
+  }
 
   addInventory(name, img_url, price){
     const body = {name, img_url, price}
@@ -73,7 +75,7 @@ export default class Form extends Component {
             <button onClick={() => this.handleSaveAdd()} >Add</button>
             <button onClick={() => this.toggleAdd() } >Cancel</button>
           </div>
-        {/* )} */}
+         {/* )}  */}
       </div>
     )
   }
