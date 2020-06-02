@@ -13,6 +13,7 @@ massive({
 }).then(db => {
   app.set('db', db);
   console.log('db connected')
+  app.listen(SERVER_PORT, ()=> console.log(`server is running on port ${SERVER_PORT}`))
 })
 .catch(err => console.log(err))
 
@@ -20,5 +21,3 @@ app.get(`/api/inventory`, ctrl.getInventory)
 app.post(`/api/inventory`, ctrl.addInventory)
 app.put(`/api/inventory/:id`, ctrl.editInventory)
 app.delete(`/api/inventory/:id`, ctrl.deleteInventory)
-
-app.listen(SERVER_PORT, ()=> console.log(`server is running on port ${SERVER_PORT}`))

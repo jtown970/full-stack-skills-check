@@ -122,59 +122,6 @@ export default class Form extends Component {
     return Math.round(num * 100)
   }
 
-
-  // toggleAdd(){
-  //   this.setState({
-  //     isAdding: !this.state.isAdding,
-  //     // resetForm: this.state.resetForm.reset()
-  //   })
-  // }
-
-  // addInventory(name, img_url, price){
-  //   const body = {name, img_url, price}
-  //   axios.post(`/api/inventory`, body)
-  //   .then(res => {
-  //     this.setState({
-  //       inventory:res.data
-  //     })
-  //   this.props.getAllProducts();
-
-  //   })
-  // }
-
-  // editInventory(id, name, img_url, price){
-  //   const body = {id, name, img_url, price}
-  //   axios.put(`/api/inventory/:${id}`, body)
-  //   .then(res => {
-  //     this.setState({
-  //       inventory: res.data
-  //     })
-  //   }).catch(err => window.alert(`sh*t happens when editing`, err))
-  // }
-
-  // handleName(e){
-  //   this.setState({
-  //     name: e.target.value
-  //   })
-  // }
-
-  // handleImgUrl(e){
-  //   this.setState({
-  //     imgUrl: e.target.value
-  //   })
-  // }
-
-  // handlePrice(e){
-  //   this.setState({
-  //     price: e.target.value
-  //   })
-  // }
-
-  // handleSaveAdd(){ // note add destuc
-  //   this.addInventory( this.state.name, this.state.imgUrl, this.state.price)
-  //   this.toggleAdd()
-  // }
-
   render() {
     return (
       <div className="form">
@@ -194,23 +141,6 @@ export default class Form extends Component {
             : <button onClick={_ => this.handleSend()}>Add to Inventory</button>
           }
         </div>
-
-
-        {/* {!this.state.isAdding ? (
-          <button onClick={() => this.toggleAdd()}>Add Product</button>
-        ) : (
-          <div>
-            <p>Product Name:</p>
-            <input placeholder="Product Name" onChange={(e) => this.handleName(e)} />
-            <p>Image URL:</p>
-            <input placeholder="Image Url" onChange={(e) => this.handleImgUrl(e)} />
-            <p>Price:</p>
-            <input placeholder="Price" onChange={(e) => this.handlePrice(e)} />
-            <br></br>
-            <button onClick={() => this.handleSaveAdd()} >Add</button>
-            <button onClick={() => this.toggleAdd() } >Cancel</button>
-          </div>
-         )}  */}
       </div>
     )
   }
